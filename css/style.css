@@ -1,0 +1,237 @@
+/* 全局样式 - 放大版 */
+body {
+    font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f9f9f9;
+}
+
+/* 标题放大 */
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 0.8em;
+    line-height: 1.2;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin: 1.2em 0 0.8em;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.6em;
+    margin: 1em 0 0.5em;
+}
+
+/* 导航菜单放大 */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background-color: #eee;
+    transform: scale(1.05);
+}
+
+/* 电影卡片放大 */
+.movie-analysis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 50px 0;
+}
+
+.movie-card {
+    flex: 1 1 350px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    border-bottom: 1px solid #eee;
+}
+
+.movie-content {
+    padding: 25px;
+}
+
+.movie-title {
+    font-size: 1.8em;
+    margin: 0 0 15px;
+    color: #2c3e50;
+}
+
+.movie-title a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.movie-title a:hover {
+    color: #e74c3c;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Flourish图表容器 */
+.flourish-container {
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 900px;
+}
+
+.chart-intro {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+}
+
+.highlight-text {
+    color: #e74c3c;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.transition-text {
+    margin: 40px 0;
+    padding: 25px;
+    background: #f8f9fa;
+    border-left: 5px solid #e74c3c;
+    font-size: 1.2em;
+    line-height: 1.8;
+    border-radius: 0 8px 8px 0;
+}
+
+/* 详情页样式 */
+.movie-detail {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin: 40px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.detail-poster {
+    max-height: 600px;
+    width: auto;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.key-points {
+    margin-top: 30px;
+    padding-left: 25px;
+    font-size: 1.1em;
+}
+
+.key-points li {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 30px;
+}
+
+.key-points li:before {
+    content: "•";
+    color: #e74c3c;
+    font-size: 2em;
+    position: absolute;
+    left: 0;
+    top: -10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    .movie-poster {
+        height: 400px;
+    }
+    
+    .movie-card {
+        flex: 1 1 100%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .flourish-container {
+        padding: 20px;
+    }
+    
+    .detail-poster {
+        max-height: 400px;
+    }
+}

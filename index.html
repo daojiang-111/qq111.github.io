@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021春节档电影成功要素分析</title>
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary-color: #333;
+            --secondary-color: #f5f5f5;
+            --accent-color: #e63946;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #f9f9f9;
+            border-radius: 50% 50% 0 0;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 40px 0 20px;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            color: #333;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            overflow-x: auto;
+            padding: 15px 0;
+            white-space: nowrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* 主要内容区 */
+        main {
+            padding: 40px 0;
+        }
+        
+        .intro-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* 数据表格 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .data-table th, 
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+        }
+        
+        .data-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* 图片展示 */
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .image-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s;
+        }
+        
+        .image-card img:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* 案例分析 */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .case-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .case-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .case-card:hover .case-image img {
+            transform: scale(1.1);
+        }
+        
+        .case-content {
+            padding: 20px;
+        }
+        
+        .case-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .case-meta {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: #c52d37;
+        }
+        
+        /* 黄金法则 */
+        .golden-rules {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .golden-rules h2 {
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .golden-rules h2::after {
+            background: white;
+        }
+        
+        .rules-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .rules-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .rules-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        /* 引用 */
+        .quote-box {
+            background-color: white;
+            border-left: 4px solid var(--accent-color);
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .quote-author {
+            font-weight: bold;
+            color: var(--accent-color);
+            text-align: right;
+            display: block;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .data-source {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                padding: 10px 0;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>2021春节档电影成功要素分析</h1>
+            <p style="font-size: 1.4em;">从票房数据看爆款电影的共性特征</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="changjinhu.html">《长津湖》分析</a></li>
+            <li><a href="xxdtq.html">《羞羞的铁拳》分析</a></li>
+            <li><a href="jurassic.html">《侏罗纪世界2》分析</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section class="intro-section">
+            <p>电影市场每年产出成千上万部作品，但真正能引爆口碑、收割票房的永远是少数。为什么有些电影能让人二刷三刷，甚至成为现象级文化事件？而有些电影即便制作精良，却依然默默无闻？好电影和爆款电影之间，到底差了什么？</p>
+            <p>今天，我们就来拆解那些让观众"上头"的电影，究竟做对了什么——</p>
+            <p>以2021年春节档院线上映的部分影片为例：</p>
+        </section>
+        
+        <h2>票房数据概览</h2>
+        <div style="text-align: center; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 30px 0;">
+            <img src="images/N1.png" alt="春节档电影票房对比" class="票房数据图表">
+            <p style="font-style: italic; color: #666; margin-top: 10px;">2021春节档与其他热门影片票房对比（单位：人民币）</p>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>影片</th>
+                    <th>票房</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>主旋律</td>
+                    <td>《长津湖》</td>
+                    <td>57.75亿</td>
+                </tr>
+                <tr>
+                    <td>喜剧</td>
+                    <td>《羞羞的铁拳》</td>
+                    <td>22亿</td>
+                </tr>
+                <tr>
+                    <td>好莱坞大片</td>
+                    <td>《侏罗纪世界2》</td>
+                    <td>16.95亿</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>可以看到，主旋律电影《长津湖》，喜剧电影《羞羞的铁拳》以及好莱坞大片《侏罗纪世界2》在票房上取得了较不错的成绩，我们也以这三部电影为例来分析，他们爆红背后的逻辑是什么。</p>
+        
+        
+        <h2>进口与国产电影票房对比</h2>
+        <div class="image-container">
+            <div class="image-card">
+                <img src="images/JINKOU.png" alt="进口电影上映首周票房表现-Top50">
+                <div class="image-caption">进口电影上映首周票房表现-Top50</div>
+            </div>
+            <div class="image-card">
+                <img src="images/GUOCHAN.png" alt="国产电影上映首周票房表现-Top50">
+                <div class="image-caption">国产电影上映首周票房表现-Top50</div>
+            </div>
+        </div>
+        
+        <h2>重点案例分析</h2>
+        <div class="case-studies">
+            <div class="case-card">
+                <div class="case-image">
+                    <img src="images/changjinhu-poster.jpg" alt="长津湖">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">《长津湖》</h3>
+                    <div class="case-meta"><strong>票房：57.75亿</strong> | 主旋律商业化的里程碑之作</div>
+                    <div class="case-tags">
+                        <span class="tag">战争奇观</span>
+                        <span class="tag">家国情怀</span>
+                        <span class="tag">工业水准</span>
+                    </div>
+                    <a href="changjinhu.html" class="read-more">查看详细分析 →</a>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-image">
+                    <img src="images/xxdtq-poster.jpg" alt="羞羞的铁拳">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">《羞羞的铁拳》</h3>
+                    <div class="case-meta"><strong>票房：22亿</strong> | 国产喜剧的标杆之作</div>
+                    <div class="case-tags">
+                        <span class="tag">笑点密集</span>
+                        <span class="tag">身体互换</span>
+                        <span class="tag">开心麻花</span>
+                    </div>
+                    <a href="xxdtq.html" class="read-more">查看详细分析 →</a>
+                </div>
+            </div>
+            
+            <div class="case-card">
+                <div class="case-image">
+                    <img src="images/jurassic-poster.jpg" alt="侏罗纪世界2">
+                </div>
+                <div class="case-content">
+                    <h3 class="case-title">《侏罗纪世界2》</h3>
+                    <div class="case-meta"><strong>票房：16.95亿</strong> | 好莱坞工业体系的典范</div>
+                    <div class="case-tags">
+                        <span class="tag">恐龙奇观</span>
+                        <span class="tag">IP延续</span>
+                        <span class="tag">特效巅峰</span>
+                    </div>
+                    <a href="jurassic.html" class="read-more">查看详细分析 →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="golden-rules">
+            <h2>爆款电影的四大黄金法则</h2>
+            <ul class="rules-list">
+                <li><strong>视觉奇观与情感共鸣的平衡</strong> - 无论是战争场面、喜剧效果还是恐龙特效，最终都要服务于情感表达</li>
+                <li><strong>类型元素的极致化呈现</strong> - 把单一类型做到极致，比追求"全才"更能打动特定观众群体</li>
+                <li><strong>精准的市场时机选择</strong> - 春节档的合家欢属性为不同类型电影提供了展示舞台</li>
+                <li><strong>社交媒体的二次传播</strong> - 电影中的名场面和台词成为社交货币，推动自来水传播</li>
+            </ul>
+        </div>
+        
+        <div class="quote-box">
+            <div class="quote-text">"在这个内容过剩的时代，成功电影的共同点是：它们不仅提供娱乐，更提供值得分享的体验。"</div>
+            <div class="quote-author">——著名电影产业分析师 李迅</div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 电影市场分析</p>
+            <p class="data-source">数据来源：国家电影局、猫眼专业版、Flourish数据可视化</p>
+        </div>
+    </footer>
+</body>
+</html>
